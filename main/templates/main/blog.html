@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+    {% for p in posts %}
+        <nav class="navbar navbar-default">
+  			<div class="container-fluid">
+    			<ul class="nav navbar-nav">
+      				<li><a href="/blog/posts/{{ p.id }}" target="_blank">{{ p.title }}</a></li>
+    			</ul>
+  			</div>
+		</nav>
+        <img src="/{{ p.pic.location }}" class="img-circle img-responsive"><br>
+        {{ p.summary }}<br>
+        <a href="/blog/posts/{{ p.id }}" target="_blank">Full post</a><br>
+    {% endfor %}
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="?page={{ page_pre }}">Previous</a></li>
+            {% for i in pages %}
+                {% if page != i %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}"> {{ i }} </a>
+                        {% else %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ i }}"> {{ i }} </a>
+                {% endif %}
+            {% endfor %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_next }}">Next</a></li>
+        </ul>
+    </div>
+{% endblock %}
+{% block nav %}
+    <nav class="navbar navbar-default">
+  			<div class="container-fluid">
+    			<ul class="nav navbar-nav">
+      				<li><a href="/" target="_self">Home</a></li>
+      				<li class="active"><a href="#" target="_blank">Blog</a></li>
+      				<li><a href="/media/resume.pdf" target="_blank">Resume</a></li>
+    			</ul>
+  			</div>
+		</nav>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+  <!-- Left and right controls -->
+{% block content %}
+		<div class="container-fluid">
+			<h1>Biography</h1><br>
+			<div id="info">
+				<div class="col-sm-2">
+					<img src="/static/photo/profile.jpg" class="img-circle img-responsive" align="center">
+				</div>
+				<p>
+					My name is Ehsan Karimi. I am a back-end , desktop application and telegram bot developer.<br>
+					I am a student of Shahid Beheshti University of Tehran.<br>
+				</p>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1>Projects</h1><br>
+			<div id="projects">
+				<div class="col-sm-2">
+					<img src="/static/photo/twitter.png" class="img-circle img-responsive"><br>
+					A social network influenced by twitter.<br>
+					Programming language : Python/django
+				</div>
+				<div class="col-sm-2">
+					<img src="/static/photo/spotify.png" class="img-circle img-responsive">
+					A social network influenced by spotify.<br>
+					Programming language : Java
+				</div>
+				<div class="col-sm-2">
+					<img src="/static/photo/gp.jpg" class="img-circle img-responsive">
+					A Telegram bot to protect groups<br>
+					Programming language : Java
+				</div>
+				<div class="col-sm-2">
+					<img src="/static/photo/guess.jpg" class="img-circle img-responsive">
+					A fun Telegram bot to guess Football matches<br>
+					Programming language : Java
+				</div>
+				<div class="col-sm-2">
+					<img src="/static/photo/iso.jpg" class="img-circle img-responsive">
+					A Telegram bot for a channel that people ask projects on it!<br>
+					Programming language : Java
+				</div>
+				<div class="col-sm-2">
+					<img src="/static/photo/hamiss.jpg" class="img-circle img-responsive">
+					A Telegram bot for our programming group! <a target="_blank" href="http://hamiss.ir">Hamiss</a><br>
+					Programming language : Java
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1>Last posts on blog</h1><br>
+			<div id="blog">
+				{% for i in posts %}
+					<div class="col-sm-2">
+						<img src="/{{ i.pic.location }}" class="img-circle img-responsive">
+						<a href="/blog/posts/{{ i.id }}" target="_blank">{{ i.title }}</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1>Contact me!</h1><br>
+			<div id="contact">
+				<div class="col-sm-5">
+					<hr>
+				</div>
+					<div class="col-sm-3">
+						<div class="col-sm-12">
+							<img src="/static/photo/contact-us.jpg" class="img-circle img-responsive">
+						</div>
+						<div class="col-sm-2"><hr></div>
+						<div class="col-sm-3">
+							<a href="https://www.linkedin.com/in/ehsan-karimi-752892154/"><i class="fa fa-linkedin"></i></a>
+						</div>
+						<div class="col-sm-3">
+							<a href="http://t.me/karimiehsan90">
+								<i class="fa fa-telegram"></i>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="http://instagram.com/karimiehsan90">
+								<i class="fa fa-instagram"></i>
+							</a>
+						</div>
+					</div>
+				<div class="col-sm-5">
+					<hr>
+				</div>
+			</div>
+		</div>
+{% endblock %}

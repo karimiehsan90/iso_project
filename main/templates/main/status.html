@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id="days" style="height: 370px; width: 100%;"></div>
+    <div id="months" style="height: 370px; width: 100%;"></div>
+    <div id="years" style="height: 370px; width: 100%;"></div>
+    <div id="hours" style="height: 370px; width: 100%;"></div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+window.onload = function () {
+    var chart = new CanvasJS.Chart("days", {
+	theme: "light1",
+	animationEnabled: true,
+	title:{
+		text: "Days"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+		    {% for d in days %}
+		        { label: {{ d.key }}, y: {{ d.value }} },
+		    {% endfor %}
+		]
+	}
+	]
+});
+chart.render();
+chart = new CanvasJS.Chart("months", {
+	theme: "light1",
+	animationEnabled: true,
+	title:{
+		text: "Months"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+		    {% for d in monthes %}
+		        { label: {{ d.key }}, y: {{ d.value }} },
+		    {% endfor %}
+		]
+	}
+	]
+})
+chart.render();
+chart = new CanvasJS.Chart("years", {
+	theme: "light1",
+	animationEnabled: true,
+	title:{
+		text: "Years"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+		    {% for d in years %}
+		        { label: {{ d.key }}, y: {{ d.value }} },
+		    {% endfor %}
+		]
+	}
+	]
+})
+chart.render();
+chart = new CanvasJS.Chart("hours", {
+	theme: "light1",
+	animationEnabled: true,
+	title:{
+		text: "Hours"
+	},
+	data: [
+	{
+		type: "column",
+		dataPoints: [
+		    {% for d in hours %}
+		        { label: {{ d.key }}, y: {{ d.value }} },
+		    {% endfor %}
+		]
+	}
+	]
+})
+chart.render();
+}
+</script>
+{% endblock %}
